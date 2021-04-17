@@ -44,13 +44,14 @@ var quizQuestions = [{
   choiceD: "console.log",
   correctAnswer: "console log"
 },
-]
-// start quiz
-startQuizButton.addEventListener('click', startTimedQuiz);
+];
 
 // hide options from main page
-var answerButton = document.getElementById('questionAnswers');
-answerButton.remove();
+// var hideButtons = document.getElementById('quiz-page');
+// hideButtons.remove();
+
+// start quiz
+startQuizButton.addEventListener('click', startTimedQuiz);
 
 // start quiz on click
 function startTimedQuiz() {
@@ -64,13 +65,16 @@ function startTimedQuiz() {
   houseQuestions.appendChild(questionOne);
 
   // create a unordered list to house answers
-  var ulQuestionOne = document.createElement('ul');
+  var mainQuestion = document.createElement('ul');
 
   // create element for first answer option and append answer to said element
-  var answerOne = document.createElement('li');
-  answerOne.textContent = quizQuestions[0].choiceA
+  var answerOneListItem = document.createElement('li');
+  var answerOneButton = document.createElement('button');
+  answerOneButton.textContent = quizQuestions[0].choiceA;
+  answerOneListItem.appendChild(answerOneButton);
   var questionAnswerOne = document.getElementById('houseQuestions');
-  questionAnswerOne.appendChild(answerOne);
+  mainQuestion.appendChild(answerOneListItem)
+  questionAnswerOne.appendChild(mainQuestion);
 
   // create element for the second answer option and append answer to said element
   var answerTwo = document.createElement('li');
@@ -89,6 +93,8 @@ function startTimedQuiz() {
   answerFour.textContent = quizQuestions[0].choiceD
   var questionAnswerFour = document.getElementById('houseQuestions');
   questionAnswerFour.appendChild(answerFour);
+
+  // AFter appending all list items to the unordered list, append the unordered list to the houseQuestions div
 };
 
 function buildQuiz() {
