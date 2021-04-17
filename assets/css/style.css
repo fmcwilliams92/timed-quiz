@@ -1,0 +1,19 @@
+.quizBanner {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.mainBodyCSS {
+  text-align: center;
+  padding: 5% 15%;
+  font-size: bold;
+}
+
+#houseQuestions {
+  font-size: bold;
+}
+
+.mainBodyCSS >  {
+  color: blue;
+}
