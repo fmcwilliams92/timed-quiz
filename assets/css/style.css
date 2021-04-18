@@ -6,8 +6,13 @@
   border-bottom: 5px solid black;
 }
 
+.quizBanner > #quizScores {
+  padding-left: 2.5%;
+}
+
 .quizBanner > #timerCSS {
   font-size: x-large;
+  padding-right: 2.5%;
 }
 
 /* main body */
@@ -64,4 +69,8 @@ li {
   font-size: large;
   border-top: 5px solid black;
   color: blue;
+}
+
+.footerCSS > h2 {
+  padding-left: 2.5%;
 }

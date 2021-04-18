@@ -53,15 +53,18 @@ startQuizButton.addEventListener('click', beginTimer);
 
 // timer
 function beginTimer(){
-  let timeLeft = 120
+  let timeLeft = 3
   var countdownTimer = document.getElementById('timeLeft');
   setInterval(function() {
     if(timeLeft <= 0) {
       clearInterval(timeLeft = 0)
+      alert('You have ran out of time!')
+      return beginTimer();
     }
     countdownTimer.innerHTML = timeLeft
     timeLeft -=1
   }, 1000)
+// need to find a way to deduct 10 seconds from the timer if the answe is incorrect
 };
 
 // start quiz on click
