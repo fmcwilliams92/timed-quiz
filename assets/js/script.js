@@ -70,12 +70,12 @@ function startTimedQuiz() {
   instructions.remove();
 
   // for loop to move to next question
-  for(i=0; i < quizQuestions.length; i++) {
+  // for(i=0; i < quizQuestions.length; i++) {
 
   // create element for question 1 and append questions to said element
   var quizQuestion = document.createElement('div');
   quizQuestion.className = "questionCSS";
-  quizQuestion.textContent = quizQuestions[i].question
+  quizQuestion.textContent = quizQuestions[0].question
   var houseQuestions = document.getElementById('houseQuestions');
   houseQuestions.appendChild(quizQuestion);
 
@@ -87,7 +87,7 @@ function startTimedQuiz() {
   var answerOne = document.createElement('li');
   var answerOneButton = document.createElement('button');
   answerOneButton.className = 'buttonCSS'
-  answerOneButton.textContent = quizQuestions[i].choiceA;
+  answerOneButton.textContent = quizQuestions[0].choiceA;
   answerOne.appendChild(answerOneButton);
   var questionAnswerOne = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerOne)
@@ -97,7 +97,7 @@ function startTimedQuiz() {
   var answerTwo = document.createElement('li');
   var answerTwoButton = document.createElement('button');
   answerTwoButton.className = 'buttonCSS'
-  answerTwoButton.textContent = quizQuestions[i].choiceB
+  answerTwoButton.textContent = quizQuestions[0].choiceB
   answerTwo.appendChild(answerTwoButton);
   var questionAnswerTwo = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerTwo);
@@ -107,7 +107,7 @@ function startTimedQuiz() {
   var answerThree = document.createElement('li');
   var answerThreeButton = document.createElement('button');
   answerThreeButton.className = 'buttonCSS'
-  answerThreeButton.textContent = quizQuestions[i].choiceC
+  answerThreeButton.textContent = quizQuestions[0].choiceC
   answerThree.appendChild(answerThreeButton);
   var questionAnswerThree = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerThree);
@@ -117,16 +117,16 @@ function startTimedQuiz() {
   var answerFour = document.createElement('li');
   var answerFourButton = document.createElement('button');
   answerFourButton.className = 'buttonCSS'
-  answerFourButton.textContent = quizQuestions[i].choiceD
+  answerFourButton.textContent = quizQuestions[0].choiceD
   answerFour.appendChild(answerFourButton);
   var questionAnswerFour = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerFour);
   questionAnswerFour.appendChild(mainQuestion);
   
-  var clickAnswer = document.querySelector('.buttonCSS')
-  clickAnswer.addEventListener('click', function() {
-    [i];
-    })
-  }
+  // var clickAnswer = document.querySelector('.buttonCSS')
+  // clickAnswer.addEventListener('click', function() {
+  //   quizQuestions[i++];
+  //   })
+  // }
 };
 

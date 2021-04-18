@@ -19,7 +19,6 @@ body {
   text-align: center;
   padding: 5% 15%;
   font-size: bold;
-  margin-bottom: 80%
 }
 
 #houseQuestions > div {
@@ -41,16 +40,28 @@ li {
   padding: 0.5%;
 }
 
+/* start quiz button */
+#startQuizButton:hover {
+  background-color: lightseagreen;
+}
+
 /* buttons with answers */
 .buttonCSS {
   border-radius: 10%;
   margin-left: 200px;
 }
 
+.buttonCSS:hover {
+  background-color: lightseagreen;
+}
+
 /* footer */
 .footerCSS {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   font-size: large;
   border-top: 5px solid black;
-  display: flex;
-  align-items: flex-end;
+  color: blue;
 }
