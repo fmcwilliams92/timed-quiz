@@ -4,6 +4,8 @@ var submitButton = document.getElementById('submit');
 var startQuizButton = document.getElementById('startQuizButton');
 var score = 0;
 
+var incorrectAnswers = ['strings', 'booleans', 'numbers'];
+
 //Array holding all the questions and answers bank
 var quizQuestions = [{
   question: "Commonly used data types DO NOT include:",
@@ -11,7 +13,8 @@ var quizQuestions = [{
   choiceB: "booleans",
   choiceC: "alerts",
   choiceD: "numbers",
-  correctAnswer: "alerts"
+  correctAnswer: "alerts",
+  //incorrectAnswers: ["strings", "booleans", "numbers"]
 },
 {
   question: "The condition in an if / else statement is enclosed with ____________.",
@@ -53,19 +56,24 @@ startQuizButton.addEventListener('click', beginTimer);
 
 // timer
 function beginTimer(){
-  let timeLeft = 3
+  let timeLeft = 120
   var countdownTimer = document.getElementById('timeLeft');
   setInterval(function() {
     if(timeLeft <= 0) {
-      clearInterval(timeLeft = 0)
-      alert('You have ran out of time!')
-      return beginTimer();
+      clearInterval(timeLeft = 0);
+      alert('You have ran out of time!');
+      //return beginTimer();
     }
     countdownTimer.innerHTML = timeLeft
     timeLeft -=1
   }, 1000)
 // need to find a way to deduct 10 seconds from the timer if the answe is incorrect
-};
+    document.getElementById('incorrectAnswers').addEventListener('click', function() {
+      sec -= 10;
+      document.getElementById('timeLeft').innerHTML='00:'+sec;
+    });
+    beginTimer();
+  };
 
 // start quiz on click
 function startTimedQuiz() {
