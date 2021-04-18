@@ -2,6 +2,7 @@ var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 var startQuizButton = document.getElementById('startQuizButton');
+var score = 0;
 
 //Array holding all the questions and answers bank
 var quizQuestions = [{
@@ -52,7 +53,7 @@ startQuizButton.addEventListener('click', beginTimer);
 
 // timer
 function beginTimer(){
-  let timeLeft = 200
+  let timeLeft = 120
   var countdownTimer = document.getElementById('timeLeft');
   setInterval(function() {
     if(timeLeft <= 0) {
@@ -68,10 +69,13 @@ function startTimedQuiz() {
   var instructions = document.getElementById('quizPrompt');
   instructions.remove();
 
+  // for loop to move to next question
+  for(i=0; i < quizQuestions.length; i++) {
+
   // create element for question 1 and append questions to said element
   var quizQuestion = document.createElement('div');
   quizQuestion.className = "questionCSS";
-  quizQuestion.textContent = quizQuestions[0].question
+  quizQuestion.textContent = quizQuestions[i].question
   var houseQuestions = document.getElementById('houseQuestions');
   houseQuestions.appendChild(quizQuestion);
 
@@ -83,7 +87,7 @@ function startTimedQuiz() {
   var answerOne = document.createElement('li');
   var answerOneButton = document.createElement('button');
   answerOneButton.className = 'buttonCSS'
-  answerOneButton.textContent = quizQuestions[0].choiceA;
+  answerOneButton.textContent = quizQuestions[i].choiceA;
   answerOne.appendChild(answerOneButton);
   var questionAnswerOne = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerOne)
@@ -93,7 +97,7 @@ function startTimedQuiz() {
   var answerTwo = document.createElement('li');
   var answerTwoButton = document.createElement('button');
   answerTwoButton.className = 'buttonCSS'
-  answerTwoButton.textContent = quizQuestions[0].choiceB
+  answerTwoButton.textContent = quizQuestions[i].choiceB
   answerTwo.appendChild(answerTwoButton);
   var questionAnswerTwo = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerTwo);
@@ -103,7 +107,7 @@ function startTimedQuiz() {
   var answerThree = document.createElement('li');
   var answerThreeButton = document.createElement('button');
   answerThreeButton.className = 'buttonCSS'
-  answerThreeButton.textContent = quizQuestions[0].choiceC
+  answerThreeButton.textContent = quizQuestions[i].choiceC
   answerThree.appendChild(answerThreeButton);
   var questionAnswerThree = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerThree);
@@ -113,15 +117,16 @@ function startTimedQuiz() {
   var answerFour = document.createElement('li');
   var answerFourButton = document.createElement('button');
   answerFourButton.className = 'buttonCSS'
-  answerFourButton.textContent = quizQuestions[0].choiceD
+  answerFourButton.textContent = quizQuestions[i].choiceD
   answerFour.appendChild(answerFourButton);
   var questionAnswerFour = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerFour);
   questionAnswerFour.appendChild(mainQuestion);
+  
+  var clickAnswer = document.querySelector('.buttonCSS')
+  clickAnswer.addEventListener('click', function() {
+    [i];
+    })
+  }
 };
 
-// on submit, move to next question and show if prior selection was correct/incorrect
-document.addEventListener('click', choiceA)
-
-
-// submitButton.addEventListener('click', showResults);

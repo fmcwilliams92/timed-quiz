@@ -19,6 +19,7 @@ body {
   text-align: center;
   padding: 5% 15%;
   font-size: bold;
+  margin-bottom: 80%
 }
 
 #houseQuestions > div {
@@ -44,4 +45,12 @@ li {
 .buttonCSS {
   border-radius: 10%;
   margin-left: 200px;
+}
+
+/* footer */
+.footerCSS {
+  font-size: large;
+  border-top: 5px solid black;
+  display: flex;
+  align-items: flex-end;
 }
