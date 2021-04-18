@@ -145,12 +145,22 @@ function loopOnClick() {
   }
 };
 
-// check answer for correct/incorrect
+// collect answer and confirm if its correct
+function checkAnswer() {
+  var correctAnswerOne = quizQuestions.correctAnswer
+  console.log('correctAnswerOne');
+  var correctAnswerTwo = quizQuestions[1].correctAnswer
+  var correctAnswerThree = quizQuestions[2].correctAnswer
+  var correctAnswerFour = quizQuestions[3].correctAnswer
+  var correctAnswerFive= quizQuestions[4].correctAnswer
+}
 
-// end quiz
-function endQuiz() {
-  var showScores
-  if(loopQuestions === 5) {
-    alert('You have completed your quiz!')
-  }
-};
+// // end quiz
+// function endQuiz() {
+//   if(loopQuestions >= 4) {
+//     alert('You have completed your quiz!')
+//   }
+//   var showScores = document.getElementById('#quizScores');
+// };
+
+// post 
