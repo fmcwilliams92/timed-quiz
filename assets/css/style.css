@@ -1,7 +1,18 @@
+/* banner */
 .quizBanner {
   display: flex;
   justify-content: space-between;
+  color: blue;
+  border-bottom: 5px solid black;
+}
 
+.quizBanner > #timerCSS {
+  font-size: x-large;
+}
+
+/* main body */
+body {
+  background-color: lightcyan;
 }
 
 .mainBodyCSS {
@@ -10,10 +21,27 @@
   font-size: bold;
 }
 
-#houseQuestions {
+#houseQuestions > div {
   font-size: bold;
 }
 
 li {
   list-style: none;
+  text-align: left;
+  padding-left: 25%;
+}
+
+/* questions */
+.questionCSS {
+  font-size: large;
+}
+
+.ulCSS > li {
+  padding: 0.5%;
+}
+
+/* buttons with answers */
+.buttonCSS {
+  border-radius: 10%;
+  margin-left: 200px;
 }
