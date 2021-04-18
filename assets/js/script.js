@@ -61,7 +61,7 @@ function beginTimer(){
     if(timeLeft <= 0) {
       clearInterval(timeLeft = 0)
       alert('You have ran out of time!')
-      return beginTimer();
+      //endQuiz();
     }
     countdownTimer.innerHTML = timeLeft
     timeLeft -=1
@@ -140,9 +140,17 @@ function loopOnClick() {
   if(loopQuestions <= quizQuestions.length) {
     loopQuestions++
     displayQuestions();
+  } else {
+    //endQuiz();
   }
 };
 
 // check answer for correct/incorrect
 
-// end quiz
+// // end quiz
+// function endQuiz() {
+//   var showScores
+//   if(loopQuestions === 5) {
+//     alert('You have completed your quiz!')
+//   }
+// };
