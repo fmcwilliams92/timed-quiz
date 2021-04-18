@@ -56,7 +56,7 @@ startQuizButton.addEventListener('click', beginTimer);
 
 // timer
 function beginTimer(){
-  let timeLeft = 120
+  let timeLeft = 3
   var countdownTimer = document.getElementById('timeLeft');
   setInterval(function() {
     if(timeLeft <= 0) {
