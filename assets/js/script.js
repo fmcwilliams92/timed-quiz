@@ -2,7 +2,9 @@ var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 var startQuizButton = document.getElementById('startQuizButton');
+var loopQuestions = 0;
 var score = 0;
+
 
 //Array holding all the questions and answers bank
 var quizQuestions = [{
@@ -47,13 +49,13 @@ var quizQuestions = [{
 },
 ];
 
-// start quiz & timer
+// add event listeners
 startQuizButton.addEventListener('click', startTimedQuiz);
 startQuizButton.addEventListener('click', beginTimer);
 
 // timer
 function beginTimer(){
-  let timeLeft = 3
+  let timeLeft = 120
   var countdownTimer = document.getElementById('timeLeft');
   setInterval(function() {
     if(timeLeft <= 0) {
@@ -64,22 +66,24 @@ function beginTimer(){
     countdownTimer.innerHTML = timeLeft
     timeLeft -=1
   }, 1000)
-// need to find a way to deduct 10 seconds from the timer if the answe is incorrect
+// need to find a way to deduct 10 seconds from the timer if the answer is incorrect
 };
 
 // start quiz on click
 function startTimedQuiz() {
   var instructions = document.getElementById('quizPrompt');
   instructions.remove();
+  displayQuestions();
+};
 
-  // for loop to move to next question
-  // for(i=0; i < quizQuestions.length; i++) {
-
+  // displaying quiz question
+function displayQuestions() {
   // create element for question 1 and append questions to said element
   var quizQuestion = document.createElement('div');
   quizQuestion.className = "questionCSS";
-  quizQuestion.textContent = quizQuestions[0].question
+  quizQuestion.textContent = quizQuestions[loopQuestions].question
   var houseQuestions = document.getElementById('houseQuestions');
+  houseQuestions.innerHTML = '';
   houseQuestions.appendChild(quizQuestion);
 
   // create a unordered list to house answers
@@ -89,8 +93,9 @@ function startTimedQuiz() {
   // create element for first answer option and append answer to said element
   var answerOne = document.createElement('li');
   var answerOneButton = document.createElement('button');
+  answerOneButton.addEventListener('click', loopOnClick);
   answerOneButton.className = 'buttonCSS'
-  answerOneButton.textContent = quizQuestions[0].choiceA;
+  answerOneButton.textContent = quizQuestions[loopQuestions].choiceA;
   answerOne.appendChild(answerOneButton);
   var questionAnswerOne = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerOne)
@@ -99,8 +104,9 @@ function startTimedQuiz() {
   // create element for the second answer option and append answer to said element
   var answerTwo = document.createElement('li');
   var answerTwoButton = document.createElement('button');
+  answerTwoButton.addEventListener('click', loopOnClick);
   answerTwoButton.className = 'buttonCSS'
-  answerTwoButton.textContent = quizQuestions[0].choiceB
+  answerTwoButton.textContent = quizQuestions[loopQuestions].choiceB
   answerTwo.appendChild(answerTwoButton);
   var questionAnswerTwo = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerTwo);
@@ -109,8 +115,9 @@ function startTimedQuiz() {
   // create element for the third answer option and append answer to said element
   var answerThree = document.createElement('li');
   var answerThreeButton = document.createElement('button');
+  answerThreeButton.addEventListener('click', loopOnClick);
   answerThreeButton.className = 'buttonCSS'
-  answerThreeButton.textContent = quizQuestions[0].choiceC
+  answerThreeButton.textContent = quizQuestions[loopQuestions].choiceC
   answerThree.appendChild(answerThreeButton);
   var questionAnswerThree = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerThree);
@@ -119,17 +126,23 @@ function startTimedQuiz() {
   // create element for the fourth answer option and append answer to said element
   var answerFour = document.createElement('li');
   var answerFourButton = document.createElement('button');
+  answerFourButton.addEventListener('click', loopOnClick);
   answerFourButton.className = 'buttonCSS'
-  answerFourButton.textContent = quizQuestions[0].choiceD
+  answerFourButton.textContent = quizQuestions[loopQuestions].choiceD
   answerFour.appendChild(answerFourButton);
   var questionAnswerFour = document.getElementById('houseQuestions');
   mainQuestion.appendChild(answerFour);
   questionAnswerFour.appendChild(mainQuestion);
-  
-  // var clickAnswer = document.querySelector('.buttonCSS')
-  // clickAnswer.addEventListener('click', function() {
-  //   quizQuestions[i++];
-  //   })
-  // }
 };
 
+// looping quiz questions
+function loopOnClick() {
+  if(loopQuestions <= quizQuestions.length) {
+    loopQuestions++
+    displayQuestions();
+  }
+};
+
+// check answer for correct/incorrect
+
+// end quiz
