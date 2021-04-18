@@ -156,11 +156,11 @@ function checkAnswer() {
 }
 
 // // end quiz
-// function endQuiz() {
-//   if(loopQuestions >= 4) {
-//     alert('You have completed your quiz!')
-//   }
-//   var showScores = document.getElementById('#quizScores');
-// };
+function endQuiz() {
+  if(loopQuestions >= 4) {
+    alert('You have completed your quiz!')
+  }
+  var showScores = document.getElementById('#quizScores');
+};
 
 // post 
