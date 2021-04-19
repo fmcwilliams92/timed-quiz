@@ -69,6 +69,8 @@ li {
   font-size: large;
   border-top: 5px solid black;
   color: blue;
+  display: flex;
+  justify-content: space-between;
 }
 
 .footerCSS > h2 {
